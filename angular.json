@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wallapop-item-manager"
+    }
+  },
+  "defaultProject": "wallapop-item-manager",
+  "cli": {
+    "analytics": "92c6169c-b078-4dc2-ad4b-ba39feee77ff"
+  }
 }
