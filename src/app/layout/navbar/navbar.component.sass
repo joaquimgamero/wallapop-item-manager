@@ -3,13 +3,17 @@
   height: 100vh
   position: fixed
   background-color: var(--bg-secondary)
-  transition: width 200ms ease
+  transition: var(--transition-speed) ease
   &:hover
     width: 16rem
     .link-text
       display: block
 
-.nav
+i
+  min-width: 2rem
+  margin: 0 1rem
+
+.navbar-nav
   list-style: none
   padding: 0
   margin: 0
@@ -17,22 +21,39 @@
   flex-direction: column
   align-items: center
   height: 100%
-  &-item
-    @extend .nav
-    width: 100%
-    color: white
-    &:last-child
-      height: auto
-      margin-top: auto
-      margin-bottom: 0.5rem
-  &-link
-    display: flex
-    align-items: center
-    height: 5rem
+
+.nav-item
+  width: 100%
+  &:last-child
+    margin-top: auto
+
+.nav-link
+  display: flex
+  align-items: center
+  height: 5rem
+  color: white
+  text-decoration: none
+  &:hover
     color: var(--text-secondary)
-    text-decoration: none
+    transition: var(--transition-speed)
+    background-color: #1e1e47
 
 .link-text
   display: none
   margin-left: 1rem
 
+.logo
+  font-weight: bolder
+  background-color: #1e1e47
+  color: var(--text-secondary)
+  width: 100%
+
+// .nav-link-logo
+//   display: flex
+//   align-items: center
+//   height: 5rem
+//   background-color: #1e1e47
+//   color: var(--text-secondary)
+//   text-decoration: none
+//   &:hover
+//     transition: var(--transition-speed)
