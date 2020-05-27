@@ -1,6 +1,4 @@
-\:host
-  width: 5rem
-  height: 100vh
+.navbar
   position: fixed
   background-color: var(--bg-secondary)
   transition: var(--transition-speed) ease
@@ -18,7 +16,6 @@ i
   padding: 0
   margin: 0
   display: flex
-  flex-direction: column
   align-items: center
   height: 100%
   &:hover
@@ -61,3 +58,43 @@ i
     color: var(--text-secondary)
     transition: var(--transition-speed)
     background-color: black
+
+// Responsiveness
+// Large screens
+@media(min-width: 600px)
+  .navbar
+    top: 0
+    width: 5rem
+    height: 100vh
+    &:hover
+      width: 16rem
+      .link-text
+        display: inline
+    &-item
+      width: 100%
+      &:last-child
+        margin-top: auto
+
+  .nav
+    flex-direction: column
+
+// Small screens
+@media(max-width: 600px)
+  .navbar
+    bottom: 0
+    width: 100vw
+    height: 5rem
+    &:hover
+      width: 100%
+      .link-text
+        display: none
+
+  .nav
+    flex-direction: row
+    &-item
+      width: 80px
+      &:last-child
+        margin-left: auto
+
+  .logo
+    display: none
