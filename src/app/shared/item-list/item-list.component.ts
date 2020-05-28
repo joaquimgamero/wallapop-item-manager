@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsService } from '../items.service';
+
+import { of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-item-list',
+  selector: 'item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.sass']
+  styleUrls: ['./item-list.component.sass'],
 })
 export class ItemListComponent implements OnInit {
+  items$ = this.itemsService.items$.pipe(
+    tap(console.log),
+    catchError((error) => {
+      this.errorMessage = error;
+      return of(null);
+    })
+  );
 
-  constructor() { }
+  errorMessage: string;
 
-  ngOnInit(): void {
-  }
+  constructor(private itemsService: ItemsService) {}
 
+  ngOnInit(): void {}
 }
