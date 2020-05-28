@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -12,9 +13,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent],
-    });
-    // .compileComponents();
+      declarations: [AppComponent, NavbarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('navbar')).not.toBe(null);
   }));
 
-  it('should have router outling', async(() => {
+  it('should have router outlining', async(() => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('router-outlet')).not.toBe(null);
   }));
