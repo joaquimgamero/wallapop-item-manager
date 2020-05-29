@@ -1,0 +1,103 @@
+\:host
+  display: flex
+  flex-direction: column
+  border: 1px solid var(--bg-secondary)
+  color: black
+  padding: 0.4rem
+  border-radius: var(--border-radius)
+  transition: all var(--transition-speed)
+  overflow: hidden
+  background-color: var(--bg-primary)
+  min-height: 0
+  min-width: 0
+  z-index: 999
+  &:hover
+    transform: translateY(-3px) scale(1.01)
+
+p
+  margin: 0
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  overflow: hidden
+  -webkit-box-orient: vertical
+
+.sections
+  display: grid
+  gap: 1rem
+  grid-template-rows: auto
+  grid-template-columns: 240px auto 50px
+  height: 100%
+
+.photo
+  grid-area: photo
+  border-radius: var(--border-radius)
+  overflow: hidden
+  &-img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.info
+  grid-area: info
+  height: 200px
+  color: black
+  min-width: 0
+  &-title
+    font-size: 1.3rem
+    font-weight: bolder
+    -webkit-line-clamp: 1
+  &-price
+    font-size: 1.2rem
+    font-weight: normal
+    margin-bottom: 10px
+  &-description
+    font-size: 0.9rem
+    font-weight: normal
+    max-height: 130px
+    &-text
+      -webkit-line-clamp: 6
+      height: 130px
+
+.buttons
+  grid-area: buttons
+  text-align: right
+  color: white
+  &-fav
+    transition: all 0.5s ease-out
+    cursor: pointer
+    font-size: 2rem
+    background-color: var(--bg-secondary)
+    border-radius: 50%
+    border: 1x solid grey
+    padding: 7px
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: deeppink
+    &:hover
+      background-color: var(--text-secondary)
+
+.isFavorite
+  color: deeppink
+
+// Responsiveness
+// Large screens
+@media(min-width: 800px)
+  \:host
+    height: 200px
+    justify-content: center
+
+  .sections
+    grid-template-areas: 'photo  info  buttons'
+    grid-template-columns: 240px auto 50px
+
+// Small screens
+@media(max-width: 800px)
+  \:host
+    height: 500px
+
+  .sections
+    grid-template-areas: 'photo' 'info' 'buttons'
+    grid-template-columns: 100%
+    gap: 0
+
+  .info
+    padding: 10px

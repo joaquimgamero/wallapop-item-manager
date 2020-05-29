@@ -1,6 +1,7 @@
 .navbar
+  z-index: 1000
   position: fixed
-  background-color: var(--bg-secondary)
+  background-color: var(--bg-navbar)
   transition: var(--transition-speed) ease
   &:hover
     width: 20rem
@@ -61,7 +62,7 @@ i
 
 // Responsiveness
 // Large screens
-@media(min-width: 600px)
+@media(min-width: 800px)
   .navbar
     top: 0
     width: 5rem
@@ -79,13 +80,13 @@ i
     flex-direction: column
 
 // Small screens
-@media(max-width: 600px)
+@media(max-width: 800px)
   .navbar
     bottom: 0
     width: 100vw
     height: 5rem
     &:hover
-      width: 100%
+      width: 100vw
       .link-text
         display: none
 
@@ -93,6 +94,7 @@ i
     flex-direction: row
     &-item
       width: 80px
+      margin-right: 3vw
       &:last-child
         margin-left: auto
 

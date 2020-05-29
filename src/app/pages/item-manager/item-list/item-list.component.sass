@@ -1,0 +1,21 @@
+.list
+  display: grid
+  gap: 1rem
+
+.filters
+  background-color: var(--bg-primary)
+  padding: 10px
+  margin-bottom: 10px
+  border-radius: var(--border-radius)
+
+// Responsiveness
+// Large screens
+@media(min-width: 800px)
+  .list
+    padding-left: 10vw
+    padding-right: 10vw
+
+// Small screens
+@media(max-width: 800px)
+  .list
+    padding: 0

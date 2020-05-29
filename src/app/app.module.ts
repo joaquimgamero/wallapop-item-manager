@@ -4,21 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { ContactComponent } from './contact/contact.component';
-import { ItemManagerComponent } from './item-manager/item-manager.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ItemManagerComponent } from './pages/item-manager/item-manager.component';
+import { ItemComponent } from './pages/item-manager/item/item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SearcherComponent } from './shared/searcher/searcher.component';
+import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ContactComponent,
-    ItemManagerComponent
+    ItemManagerComponent,
+    ItemListComponent,
+    ItemComponent,
+    SearcherComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
