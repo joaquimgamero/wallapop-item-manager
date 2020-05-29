@@ -1,11 +1,10 @@
 <div class="filters">
-  <searcher [searchTarget$]="items$"></searcher>
+  <searcher (searched)="onSearched($event)"></searcher>
 </div>
 
-<div class="list" *ngIf="items$ | async as items; else error">
-  <item *ngFor="let item of items" [item]="item"></item>
+<div class="list" *ngIf="items$ | async as items">
+  <item
+    *ngFor="let item of items | search: lastSearchTerm"
+    [item]="item"
+  ></item>
 </div>
-
-<ng-template #error>
-  {{ errorMessage }}
-</ng-template>

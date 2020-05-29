@@ -23,21 +23,23 @@ export class ItemsService {
     }),
   };
 
-  items$ = this.http.get<Item[]>(this.itemsUrl).pipe(
-    map((res: any) => {
-      let items = res.items;
-
-      // Add id property
-      items.forEach((item: Item, index: number) => {
-        item.id = index;
-      });
-
-      return items;
-    }),
-    catchError(this.handleError)
-  );
-
   constructor(private http: HttpClient) {}
+
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.itemsUrl, this.httpOptions).pipe(
+      map((res: any) => {
+        let items = res.items;
+
+        // Add id property
+        items.forEach((item: Item, index: number) => {
+          item.id = index;
+        });
+
+        return items;
+      }),
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(error: HttpErrorResponse) {
     // Should send the error to remote logging infrastructure

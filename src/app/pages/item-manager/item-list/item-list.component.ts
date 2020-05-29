@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ItemsService } from 'src/app/shared/items.service';
+import { Item } from 'src/app/shared/item';
 
 @Component({
   selector: 'item-list',
@@ -10,17 +11,20 @@ import { ItemsService } from 'src/app/shared/items.service';
   styleUrls: ['./item-list.component.sass'],
 })
 export class ItemListComponent implements OnInit {
-  items$ = this.itemsService.items$.pipe(
-    tap(console.log),
-    catchError((error) => {
-      this.errorMessage = error;
-      return of(null);
-    })
-  );
-
-  errorMessage: string;
+  items$: Observable<Item[]>;
+  lastSearchTerm: string;
 
   constructor(private itemsService: ItemsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.items$ = this.loadItems();
+  }
+
+  loadItems(): Observable<Item[]> {
+    return this.itemsService.getItems();
+  }
+
+  onSearched(term: string) {
+    this.lastSearchTerm = term;
+  }
 }
