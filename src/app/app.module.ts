@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearcherComponent } from './shared/searcher/searcher.component';
 import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
 import { FormsModule } from '@angular/forms';
-import { SearchPipe } from './shared/pipes/search.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [

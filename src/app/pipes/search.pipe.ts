@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Item } from '../item';
+import { Item } from '../shared/item';
 
 @Pipe({
   name: 'search',
@@ -17,8 +17,8 @@ export class SearchPipe implements PipeTransform {
     if (!item) {
       return false;
     }
-    term = term.toLowerCase();
 
+    term = term.toLowerCase();
     const title = item.title.toLowerCase();
     const description = item.description.toLowerCase();
     const price = item.price.toString().toLowerCase();

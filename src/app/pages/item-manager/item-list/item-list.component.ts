@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { of, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { ItemsService } from 'src/app/shared/items.service';
 import { Item } from 'src/app/shared/item';
+import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'item-list',

@@ -7,8 +7,7 @@ import {
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap, switchMap } from 'rxjs/operators';
-
-import { Item } from './item';
+import { Item } from '../shared/item';
 
 @Injectable({
   providedIn: 'root',
@@ -17,16 +16,10 @@ export class ItemsService {
   private itemsUrl =
     'https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-  };
-
   constructor(private http: HttpClient) {}
 
   getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.itemsUrl, this.httpOptions).pipe(
+    return this.http.get<Item[]>(this.itemsUrl).pipe(
       map((res: any) => {
         let items = res.items;
 
