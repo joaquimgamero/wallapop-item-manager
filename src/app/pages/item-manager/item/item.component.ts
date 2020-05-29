@@ -23,6 +23,6 @@ export class ItemComponent implements OnInit {
   }
 
   get isFavorite(): boolean {
-    return this.favoritesService.isFavorite(this.item);
+    return this.favoritesService.isFavorite(this.item.id);
   }
 }

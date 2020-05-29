@@ -1,5 +1,5 @@
 <div class="filters">
-  <searcher></searcher>
+  <searcher [searchTarget$]="items$"></searcher>
 </div>
 
 <div class="list" *ngIf="items$ | async as items; else error">
