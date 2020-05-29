@@ -15,16 +15,20 @@
   &:hover
     transform: translateY(-3px) scale(1.01)
 
+p
+  margin: 0
+
 .sections
   display: grid
   grid-template-areas: 'a  b  c'
   gap: 1rem
   grid-template-rows: auto
-  grid-template-columns: 240px auto 100px
+  grid-template-columns: 240px auto 50px
   height: 100%
 
 .photo
   grid-area: a
+
   border-radius: 7px
   overflow: hidden
   &-img
@@ -33,11 +37,18 @@
     object-fit: cover
 
 .info
-  color: black
   grid-area: b
+
+  height: 200px
+  color: black
+  min-width: 0
   &-title
     font-size: 1.3rem
     font-weight: bolder
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: 1
+    overflow: hidden
   &-price
     font-size: 1.2rem
     font-weight: normal
@@ -45,9 +56,17 @@
   &-description
     font-size: 0.9rem
     font-weight: normal
+    max-height: 130px
+    &-text
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      -webkit-line-clamp: 6
+      overflow: hidden
+      height: 130px
 
 .buttons
   grid-area: c
+
   text-align: right
   color: white
   &-fav
@@ -59,6 +78,3 @@
     padding: 7px
     -webkit-text-stroke-width: 1px
     -webkit-text-stroke-color: black
-
-
-
