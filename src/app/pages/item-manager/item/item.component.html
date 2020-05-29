@@ -6,9 +6,7 @@
 
   <!-- Info (text) -->
   <div class="info">
-    <p class="info-title">
-      {{ item.title }}
-    </p>
+    <p class="info-title">{{ item.title }} {{ item.id }}</p>
     <!-- TODO: Set locale for correct currency positioning -->
     <div class="info-price">{{ item.price | currency: "EUR" }}</div>
     <div class="info-description">
@@ -18,8 +16,11 @@
 
   <!-- Buttons -->
   <div class="buttons">
-    <div>
-      <i class="material-icons buttons-fav" alt="Add to your favorites"
+    <div (click)="toggleFavorite()">
+      <i
+        class="material-icons buttons-fav"
+        [ngClass]="{ isFavorite: isFavorite }"
+        alt="Add to your favorites"
         >favorite</i
       >
     </div>

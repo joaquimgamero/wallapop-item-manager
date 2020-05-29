@@ -63,6 +63,7 @@ p
   text-align: right
   color: white
   &-fav
+    transition: all 0.5s ease-out
     cursor: pointer
     font-size: 2rem
     background-color: var(--bg-secondary)
@@ -73,6 +74,9 @@ p
     -webkit-text-stroke-color: deeppink
     &:hover
       background-color: var(--text-secondary)
+
+.isFavorite
+  color: deeppink
 
 // Responsiveness
 // Large screens

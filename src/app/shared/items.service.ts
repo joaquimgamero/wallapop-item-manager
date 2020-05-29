@@ -24,7 +24,16 @@ export class ItemsService {
   };
 
   items$ = this.http.get<Item[]>(this.itemsUrl).pipe(
-    map((res: any) => res.items),
+    map((res: any) => {
+      let items = res.items;
+
+      // Add id property
+      items.forEach((item: Item, index: number) => {
+        item.id = index;
+      });
+
+      return items;
+    }),
     catchError(this.handleError)
   );
 
