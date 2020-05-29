@@ -9,6 +9,7 @@ import { ItemManagerComponent } from './pages/item-manager/item-manager.componen
 import { ItemListComponent } from './shared/item-list/item-list.component';
 import { ItemComponent } from './shared/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearcherComponent } from './shared/searcher/searcher.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     ItemManagerComponent,
     ItemListComponent,
     ItemComponent,
+    SearcherComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
