@@ -1,5 +1,16 @@
 .list
   display: grid
   gap: 1rem
-  padding-left: 10vw
-  padding-right: 10vw
+
+
+// Responsiveness
+// Large screens
+@media(min-width: 600px)
+  .list
+    padding-left: 10vw
+    padding-right: 10vw
+
+// Small screens
+@media(max-width: 600px)
+  .list
+    padding: 0

@@ -1,10 +1,8 @@
 \:host
   display: flex
-  flex-direction: column
   justify-content: center
   border: 1px solid var(--bg-secondary)
   color: black
-  height: 200px
   padding: 0.4rem
   border-radius: 7px
   transition: all var(--transition-speed)
@@ -12,23 +10,26 @@
   background-color: var(--bg-primary)
   min-height: 0
   min-width: 0
+  z-index: 999
   &:hover
     transform: translateY(-3px) scale(1.01)
 
 p
   margin: 0
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  overflow: hidden
+  -webkit-box-orient: vertical
 
 .sections
   display: grid
-  grid-template-areas: 'a  b  c'
   gap: 1rem
   grid-template-rows: auto
   grid-template-columns: 240px auto 50px
   height: 100%
 
 .photo
-  grid-area: a
-
+  grid-area: photo
   border-radius: 7px
   overflow: hidden
   &-img
@@ -37,18 +38,14 @@ p
     object-fit: cover
 
 .info
-  grid-area: b
-
+  grid-area: info
   height: 200px
   color: black
   min-width: 0
   &-title
     font-size: 1.3rem
     font-weight: bolder
-    display: -webkit-box
-    -webkit-box-orient: vertical
     -webkit-line-clamp: 1
-    overflow: hidden
   &-price
     font-size: 1.2rem
     font-weight: normal
@@ -58,15 +55,11 @@ p
     font-weight: normal
     max-height: 130px
     &-text
-      display: -webkit-box
-      -webkit-box-orient: vertical
       -webkit-line-clamp: 6
-      overflow: hidden
       height: 130px
 
 .buttons
-  grid-area: c
-
+  grid-area: buttons
   text-align: right
   color: white
   &-fav
@@ -78,3 +71,26 @@ p
     padding: 7px
     -webkit-text-stroke-width: 1px
     -webkit-text-stroke-color: black
+
+// Responsiveness
+// Large screens
+@media(min-width: 600px)
+  \:host
+    height: 200px
+
+  .sections
+    grid-template-areas: 'photo  info  buttons'
+    grid-template-columns: 240px auto 50px
+
+// Small screens
+@media(max-width: 600px)
+  \:host
+    height: 500px
+
+  .sections
+    grid-template-areas: 'photo' 'info' 'buttons'
+    grid-template-columns: auto auto auto
+    gap: 0
+
+  .info
+    padding: 10px

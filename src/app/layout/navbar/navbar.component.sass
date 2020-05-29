@@ -1,4 +1,5 @@
 .navbar
+  z-index: 1000
   position: fixed
   background-color: var(--bg-navbar)
   transition: var(--transition-speed) ease
@@ -85,7 +86,7 @@ i
     width: 100vw
     height: 5rem
     &:hover
-      width: 100%
+      width: 100vw
       .link-text
         display: none
 
@@ -93,9 +94,9 @@ i
     flex-direction: row
     &-item
       width: 80px
+      margin-right: 3vw
       &:last-child
         margin-left: auto
-        margin-right: 3vw
 
   .logo
     display: none
