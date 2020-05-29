@@ -4,7 +4,7 @@
   justify-content: center
   border: 1px solid var(--bg-secondary)
   color: black
-  height: 20vh
+  height: 200px
   padding: 0.4rem
   border-radius: 7px
   transition: all var(--transition-speed)
@@ -20,27 +20,45 @@
   grid-template-areas: 'a  b  c'
   gap: 1rem
   grid-template-rows: auto
-  grid-template-columns: 240px auto 240px
+  grid-template-columns: 240px auto 100px
   height: 100%
 
 .photo
   grid-area: a
   border-radius: 7px
+  overflow: hidden
   &-img
-    width: 20vw
-    height: 13vw
+    width: 100%
+    height: 100%
+    object-fit: cover
 
 .info
+  color: black
   grid-area: b
-  font-size: 2.5vw
-  font-weight: bolder
+  &-title
+    font-size: 1.3rem
+    font-weight: bolder
+  &-price
+    font-size: 1.2rem
+    font-weight: normal
+    margin-bottom: 10px
   &-description
-    font-size: 1.2vw
+    font-size: 0.9rem
     font-weight: normal
 
-.price
+.buttons
   grid-area: c
-  font-size: 2vw
-  align-self: center
-  text-align: center
+  text-align: right
+  color: white
+  &-fav
+    cursor: pointer
+    font-size: 1.5rem
+    background-color: #eceff1
+    border-radius: 50%
+    border: 1x solid grey
+    padding: 7px
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: black
+
+
 

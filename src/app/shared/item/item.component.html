@@ -1,12 +1,18 @@
 <div class="sections">
-  <div class="photo" style="background-image: url({{ item.image }});">
-    <!-- <img src="{{ item.image }}" class="photo-img" /> -->
+  <div class="photo">
+    <img class="photo-img" src="{{ item.image }}" alt="{{ item.title }}" />
   </div>
   <div class="info">
-    <div>{{ item.title }}</div>
+    <div class="info-title">{{ item.title }}</div>
+    <!-- TODO: Set locale for correct currency positioning -->
+    <div class="info-price">{{ item.price | currency: "EUR" }}</div>
     <div class="info-description">{{ item.description }}</div>
   </div>
-  <div class="price">
-    {{ item.price | currency: "EUR" }}
+  <div class="buttons">
+    <div>
+      <i class="material-icons buttons-fav" alt="Add to your favorites"
+        >favorite</i
+      >
+    </div>
   </div>
 </div>
