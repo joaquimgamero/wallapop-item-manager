@@ -1,3 +1,5 @@
+<div class="filters">filters</div>
+
 <div class="list" *ngIf="items$ | async as items; else error">
   <item *ngFor="let item of items" [item]="item"></item>
 </div>

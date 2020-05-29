@@ -1,10 +1,11 @@
 \:host
   display: flex
+  flex-direction: column
   justify-content: center
   border: 1px solid var(--bg-secondary)
   color: black
   padding: 0.4rem
-  border-radius: 7px
+  border-radius: var(--border-radius)
   transition: all var(--transition-speed)
   overflow: hidden
   background-color: var(--bg-primary)
@@ -30,7 +31,7 @@ p
 
 .photo
   grid-area: photo
-  border-radius: 7px
+  border-radius: var(--border-radius)
   overflow: hidden
   &-img
     width: 100%
@@ -64,7 +65,7 @@ p
   color: white
   &-fav
     cursor: pointer
-    font-size: 1.5rem
+    font-size: 2rem
     background-color: #eceff1
     border-radius: 50%
     border: 1x solid grey
@@ -74,7 +75,7 @@ p
 
 // Responsiveness
 // Large screens
-@media(min-width: 600px)
+@media(min-width: 800px)
   \:host
     height: 200px
 
@@ -83,7 +84,7 @@ p
     grid-template-columns: 240px auto 50px
 
 // Small screens
-@media(max-width: 600px)
+@media(max-width: 800px)
   \:host
     height: 500px
 
