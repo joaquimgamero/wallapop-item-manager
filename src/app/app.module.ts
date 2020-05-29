@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ItemManagerComponent } from './pages/item-manager/item-manager.component';
-import { ItemListComponent } from './shared/item-list/item-list.component';
-import { ItemComponent } from './shared/item/item.component';
+import { ItemComponent } from './pages/item-manager/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearcherComponent } from './shared/searcher/searcher.component';
+import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
 
 @NgModule({
   declarations: [

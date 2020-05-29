@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from '../items.service';
 
 import { of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { ItemsService } from 'src/app/shared/items.service';
 
 @Component({
   selector: 'item-list',
