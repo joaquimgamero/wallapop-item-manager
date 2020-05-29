@@ -23,8 +23,16 @@ export class SearchPipe implements PipeTransform {
     const description = item.description.toLowerCase();
     const price = item.price.toString().toLowerCase();
 
-    return (
-      title.includes(term) || description.includes(term) || price.includes(term)
-    );
+    // Normalize string in order to help user find more results (e.g.: Cámara => camara)
+    //
+    // ES6 String.prototype.normalize()
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+    const allItemInfo = title
+      .concat(' ', description)
+      .concat(' ', price)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    return allItemInfo.includes(term);
   }
 }
