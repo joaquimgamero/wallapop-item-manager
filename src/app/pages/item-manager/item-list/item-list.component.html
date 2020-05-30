@@ -1,11 +1,31 @@
+<!-- Filters -->
 <div class="filters">
-  <searcher></searcher>
+  <!-- Searcher -->
+  <searcher class="search" (searched)="onSearched($event)"></searcher>
+
+  <!-- Sort By -->
+  <!-- TODO: Separate SortBy select to a shareable component -->
+  <!-- TODO: Use more beautiful material design select -->
+  <div class="sort-filter">
+    <span>Ordenar por precio, título...</span>
+    <span>
+      <i class="material-icons">sort_by_alpha</i>
+    </span>
+    <select [(ngModel)]="selectedOrder" (ngModelChange)="onSortBy($event)">
+      <option [value]="option" *ngFor="let option of orderByOptions">{{
+        option
+      }}</option>
+    </select>
+  </div>
+
+  <!-- Pagination -->
+  <pagination class="pagination"></pagination>
 </div>
 
-<div class="list" *ngIf="items$ | async as items; else error">
-  <item *ngFor="let item of items" [item]="item"></item>
+<!-- Item list -->
+<div class="list" *ngIf="items$ | async as items">
+  <item
+    *ngFor="let item of items | search: lastSearchTerm"
+    [item]="item"
+  ></item>
 </div>
-
-<ng-template #error>
-  {{ errorMessage }}
-</ng-template>

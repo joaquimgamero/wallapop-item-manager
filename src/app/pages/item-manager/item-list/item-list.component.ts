@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { ItemsService } from 'src/app/shared/items.service';
+import { of, Observable } from 'rxjs';
+import { catchError, map, tap, groupBy } from 'rxjs/operators';
+import { Item } from 'src/app/shared/item';
+import { ItemsService } from 'src/app/services/items.service';
+import { SortType } from 'src/app/shared/sort-type.enum';
 
 @Component({
   selector: 'item-list',
@@ -10,17 +12,27 @@ import { ItemsService } from 'src/app/shared/items.service';
   styleUrls: ['./item-list.component.sass'],
 })
 export class ItemListComponent implements OnInit {
-  items$ = this.itemsService.items$.pipe(
-    tap(console.log),
-    catchError((error) => {
-      this.errorMessage = error;
-      return of(null);
-    })
-  );
+  items$: Observable<Item[]>;
+  lastSearchTerm: string;
 
-  errorMessage: string;
+  selectedOrder: SortType;
+  orderByOptions = [];
 
   constructor(private itemsService: ItemsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.items$ = this.itemsService.getItems();
+    this.orderByOptions = Object.values(SortType);
+
+    if (this.itemsService.lastSortType)
+      this.selectedOrder = this.itemsService.lastSortType;
+  }
+
+  onSearched(term: string) {
+    this.lastSearchTerm = term;
+  }
+
+  onSortBy(value: string) {
+    this.items$ = this.itemsService.getSortedItems(this.selectedOrder);
+  }
 }

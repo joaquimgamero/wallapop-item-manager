@@ -1,12 +1,42 @@
+i
+  font-size: 2rem
+  margin-top: 5px
+
+select
+  border: 1px solid black
+  height: 30px
+  width: 300px
+  border-radius: var(--border-radius)
+
 .list
   display: grid
   gap: 1rem
 
 .filters
+  display: grid
+  grid-gap: 0
+  grid-template-areas: 'search  sort  pagination'
+  grid-template-columns: 380px auto 200px
+  align-items: center
   background-color: var(--bg-primary)
   padding: 10px
   margin-bottom: 10px
   border-radius: var(--border-radius)
+  min-width: fit-content
+
+.search
+  grid-area: search
+
+.sort-filter
+  grid-area: sort
+  display: grid
+  grid-gap: 0
+  grid-template-columns: 200px 35px 320px
+  align-items: center
+
+.pagination
+  grid-area: pagination
+  text-align: right
 
 // Responsiveness
 // Large screens

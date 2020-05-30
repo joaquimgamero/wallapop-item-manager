@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item } from './item';
+import { Item } from '../shared/item';
 
 @Injectable({
   providedIn: 'root',
@@ -12,23 +12,22 @@ export class FavoritesService {
   }
 
   public addToFavorites(item: Item): void {
-    if (!this.isFavorite(item)) {
+    if (!this.isFavorite(item.id)) {
       this.favorites.push(item);
     }
-    console.log(this.favorites);
   }
 
   public removeFromFavorites(item: Item): void {
-    if (this.isFavorite(item)) {
+    if (this.isFavorite(item.id)) {
       this.favorites = this.favorites.filter(function (fav) {
         return fav.id !== item.id;
       });
     }
   }
 
-  public isFavorite(item: Item): boolean {
+  public isFavorite(id: number): boolean {
     return this.favorites.some(function (fav) {
-      return fav.id === item.id;
+      return fav.id === id;
     });
   }
 }

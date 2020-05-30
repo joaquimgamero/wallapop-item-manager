@@ -6,11 +6,16 @@
 
   <!-- Info (text) -->
   <div class="info">
-    <p class="info-title">{{ item.title }} {{ item.id }}</p>
-    <!-- TODO: Set locale for correct currency positioning -->
-    <div class="info-price">{{ item.price | currency: "EUR" }}</div>
+    <p class="info-title">{{ item.title }}</p>
+    <div class="info-price">
+      <!-- TODO: Set locale for correct currency positioning -->
+      {{ item.price | currency: "EUR":"symbol":"1.0-0" }}
+    </div>
     <div class="info-description">
       <p class="info-description-text">{{ item.description }}</p>
+      <div class="info-description-email">
+        <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+      </div>
     </div>
   </div>
 
@@ -21,7 +26,8 @@
         class="material-icons buttons-fav"
         [ngClass]="{ isFavorite: isFavorite }"
         alt="Add to your favorites"
-        >favorite</i
+      >
+        favorite</i
       >
     </div>
   </div>

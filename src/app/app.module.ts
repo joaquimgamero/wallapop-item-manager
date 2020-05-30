@@ -10,6 +10,9 @@ import { ItemComponent } from './pages/item-manager/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearcherComponent } from './shared/searcher/searcher.component';
 import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,10 @@ import { ItemListComponent } from './pages/item-manager/item-list/item-list.comp
     ItemListComponent,
     ItemComponent,
     SearcherComponent,
+    SearchPipe,
+    PaginationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
