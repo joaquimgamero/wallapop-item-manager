@@ -11,6 +11,7 @@ import { SortType } from '../shared/sort-type.enum';
 })
 export class ItemsService {
   items: Item[];
+  lastSortType: SortType;
 
   private itemsUrl =
     'https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json';
@@ -38,6 +39,7 @@ export class ItemsService {
   // TODO: Lighten up getSortedItems responsability, separate to different sorts
   public getSortedItems(sortType: SortType): Observable<Item[]> {
     if (!this.items) this.getItems();
+    this.lastSortType = sortType;
 
     switch (sortType) {
       case SortType.Title:

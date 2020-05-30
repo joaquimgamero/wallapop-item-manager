@@ -1,6 +1,7 @@
+<!-- Filters -->
 <div class="filters">
   <!-- Searcher -->
-  <searcher (searched)="onSearched($event)"></searcher>
+  <searcher class="search" (searched)="onSearched($event)"></searcher>
 
   <!-- Sort By -->
   <!-- TODO: Separate SortBy select to a shareable component -->
@@ -16,8 +17,12 @@
       }}</option>
     </select>
   </div>
+
+  <!-- Pagination -->
+  <pagination class="pagination"></pagination>
 </div>
 
+<!-- Item list -->
 <div class="list" *ngIf="items$ | async as items">
   <item
     *ngFor="let item of items | search: lastSearchTerm"

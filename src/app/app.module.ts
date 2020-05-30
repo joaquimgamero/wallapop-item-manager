@@ -12,6 +12,7 @@ import { SearcherComponent } from './shared/searcher/searcher.component';
 import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchPipe } from './pipes/search.pipe';
     ItemComponent,
     SearcherComponent,
     SearchPipe,
+    PaginationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

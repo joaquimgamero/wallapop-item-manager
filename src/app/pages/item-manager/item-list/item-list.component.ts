@@ -23,6 +23,9 @@ export class ItemListComponent implements OnInit {
   ngOnInit() {
     this.items$ = this.itemsService.getItems();
     this.orderByOptions = Object.values(SortType);
+
+    if (this.itemsService.lastSortType)
+      this.selectedOrder = this.itemsService.lastSortType;
   }
 
   onSearched(term: string) {
