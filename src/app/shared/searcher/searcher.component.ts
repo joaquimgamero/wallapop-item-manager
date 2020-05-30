@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnDestroy,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'searcher',
@@ -19,7 +12,7 @@ export class SearcherComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  search(term: string): void {
+  onSearch(term: string): void {
     this.searched.emit(term);
   }
 }
