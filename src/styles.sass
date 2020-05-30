@@ -35,6 +35,16 @@ main
   margin-left: 5rem
   padding: 2.5rem
 
+input:focus
+  outline: none
+
+// Responsiveness
+// Small screens
+@media(max-width: 800px)
+  main
+    margin-left: 0
+    margin-bottom: 5rem
+
 // Material Icons
 .material-icons
   font-family: 'Material Icons Round'
@@ -56,10 +66,3 @@ main
   -moz-osx-font-smoothing: grayscale
   // IE
   font-feature-settings: 'liga'
-
-// Responsiveness
-// Small screens
-@media(max-width: 800px)
-  main
-    margin-left: 0
-    margin-bottom: 5rem

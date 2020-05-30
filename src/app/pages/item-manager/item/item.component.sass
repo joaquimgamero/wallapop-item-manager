@@ -53,10 +53,10 @@ p
   &-description
     font-size: 0.9rem
     font-weight: normal
-    max-height: 130px
     &-text
-      -webkit-line-clamp: 6
-      height: 130px
+      -webkit-line-clamp: 5
+    &-email
+      font-weight: bold
 
 .buttons
   grid-area: buttons
@@ -89,6 +89,12 @@ p
     grid-template-areas: 'photo  info  buttons'
     grid-template-columns: 240px auto 50px
 
+  .info
+    &-description
+      max-height: 110px
+      &-text
+        height: 110px
+
 // Small screens
 @media(max-width: 800px)
   \:host
@@ -101,3 +107,10 @@ p
 
   .info
     padding: 10px
+    &-description
+      max-height: auto
+      &-email
+        margin-top: 20px
+    &-text
+      height: auto
+

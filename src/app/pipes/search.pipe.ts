@@ -6,9 +6,8 @@ import { Item } from '../shared/item';
 })
 export class SearchPipe implements PipeTransform {
   transform(values: Item[], term: string): unknown {
-    if (!term) {
-      return values;
-    }
+    if (!values) return null;
+    if (!term) return values;
 
     return values.filter((item) => this.itemIncludesTerm(item, term));
   }
@@ -21,6 +20,7 @@ export class SearchPipe implements PipeTransform {
     term = term.toLowerCase();
     const title = item.title.toLowerCase();
     const description = item.description.toLowerCase();
+    const email = item.email.toLowerCase();
     const price = item.price.toString().toLowerCase();
 
     // Normalize string in order to help user find more results (e.g.: Cámara => camara)
@@ -29,6 +29,7 @@ export class SearchPipe implements PipeTransform {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
     const allItemInfo = title
       .concat(' ', description)
+      .concat(' ', email)
       .concat(' ', price)
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
