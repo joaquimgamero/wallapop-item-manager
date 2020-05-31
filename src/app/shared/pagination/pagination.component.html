@@ -1,1 +1,43 @@
-<p>pagination works!</p>
+<button
+  [disabled]="!(firstPage < currentPage)"
+  class="pagination-button"
+  mdc-button
+  (click)="onFirst()"
+>
+  <i class="material-icons">skip_previous</i>
+</button>
+
+<button
+  [disabled]="!(firstPage < currentPage)"
+  class="pagination-button"
+  (click)="onPrevious()"
+  mdc-button
+>
+  <i class="material-icons">keyboard_arrow_left</i>
+</button>
+
+<input
+  class="page-number-input"
+  tabindex="0"
+  [(ngModel)]="currentPage"
+  (keyup.enter)="onPageChange()"
+  type="number"
+/><span>&nbsp; de {{ lastPage }}</span>
+
+<button
+  [disabled]="!(currentPage < lastPage)"
+  class="pagination-button"
+  (click)="onNext()"
+  mdc-button
+>
+  <i class="material-icons">keyboard_arrow_right</i>
+</button>
+
+<button
+  [disabled]="!(currentPage < lastPage)"
+  class="pagination-button"
+  (click)="onLast()"
+  mdc-button
+>
+  <i class="material-icons">skip_next</i>
+</button>

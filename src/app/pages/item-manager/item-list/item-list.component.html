@@ -7,7 +7,7 @@
   <!-- TODO: Separate SortBy select to a shareable component -->
   <!-- TODO: Use more beautiful material design select -->
   <div class="sort-filter">
-    <span>Ordenar por precio, título...</span>
+    <span class="sort-filter-description">Ordenar por precio, título...</span>
     <span>
       <i class="material-icons">sort_by_alpha</i>
     </span>
@@ -19,7 +19,13 @@
   </div>
 
   <!-- Pagination -->
-  <pagination class="pagination"></pagination>
+  <!-- <pagination
+    class="pagination"
+    [currentPage]="displayedPageNumber"
+    [lastPage]="lastPage"
+    [firstPage]="1"
+    (changed)="onPageChange($event)"
+  ></pagination> -->
 </div>
 
 <!-- Item list -->
