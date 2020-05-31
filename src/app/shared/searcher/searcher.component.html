@@ -1,9 +1,19 @@
-<span>
-  <i class="material-icons">search</i>
-</span>
+<!-- <span> </span>
 <input
   #searchBox
   id="search-box"
   (input)="onSearch(searchBox.value)"
-  placeholder="Busca por título, descripción, precio..."
-/>
+  placeholder=""
+/> -->
+<span>
+  <i class="material-icons">search</i>
+</span>
+<mat-form-field class="example-form-field">
+  <mat-label>Busca por título, descripción, precio...</mat-label>
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="searchValue"
+    (ngModelChange)="onSearch()"
+  />
+</mat-form-field>

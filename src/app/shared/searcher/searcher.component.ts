@@ -6,9 +6,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./searcher.component.sass'],
 })
 export class SearcherComponent {
+  searchValue: string;
+
   @Output() searched: EventEmitter<string> = new EventEmitter();
 
-  onSearch(term: string): void {
-    this.searched.emit(term);
+  onSearch(): void {
+    this.searched.emit(this.searchValue);
   }
 }
