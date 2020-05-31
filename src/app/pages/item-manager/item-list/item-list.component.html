@@ -7,9 +7,6 @@
 ></filters>
 
 <!-- Item list -->
-<div class="list" *ngIf="items$ | async as items">
-  <item
-    *ngFor="let item of items | search: lastSearchTerm"
-    [item]="item"
-  ></item>
+<div class="list" *ngIf="filteredItems">
+  <item *ngFor="let item of filteredItems" [item]="item"></item>
 </div>

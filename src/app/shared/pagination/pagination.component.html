@@ -18,7 +18,7 @@
   class="page-number-input"
   tabindex="0"
   [(ngModel)]="currentPage"
-  (keyup.enter)="onPageChange()"
+  (change)="onPageChange()"
   type="number"
 /><span>&nbsp; de {{ lastPage }}</span>
 
