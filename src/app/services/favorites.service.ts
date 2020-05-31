@@ -11,6 +11,10 @@ export class FavoritesService {
     this.favorites = [];
   }
 
+  public get userHasFavorites(): boolean {
+    return this.favorites && this.favorites.length > 0;
+  }
+
   public addToFavorites(item: Item): void {
     if (!this.isFavorite(item.id)) {
       this.favorites.push(item);

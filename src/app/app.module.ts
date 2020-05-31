@@ -16,11 +16,13 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
 import { FiltersComponent } from './pages/item-manager/filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { FavoritesModalComponent } from './pages/favorites-modal/favorites-modal.component';
+import { FavoriteItemComponent } from './pages/favorites-modal/favorite-item/favorite-item.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
     SearchPipe,
     PaginationComponent,
     FiltersComponent,
+    FavoritesModalComponent,
+    FavoriteItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,5 +53,6 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [FavoritesModalComponent],
 })
 export class AppModule {}

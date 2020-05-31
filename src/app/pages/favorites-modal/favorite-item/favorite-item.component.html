@@ -1,0 +1,13 @@
+<div class="sections">
+  <div class="photo">
+    <img class="photo-img" src="{{ item.image }}" alt="{{ item.title }}" />
+  </div>
+  <div class="title">
+    <span>{{ item.title }}</span>
+  </div>
+  <div class="buttons">
+    <div (click)="onRemoveFromFavorites()">
+      <i class="material-icons buttons-remove">delete</i>
+    </div>
+  </div>
+</div>

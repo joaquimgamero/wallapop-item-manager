@@ -1,0 +1,48 @@
+\:host
+  display: flex
+  height: 70px
+  width: 600px
+  flex-direction: column
+  border: 1px solid var(--bg-secondary)
+  color: black
+  padding: 0.4rem
+  border-radius: var(--border-radius)
+  transition: all var(--transition-speed)
+  overflow: hidden
+  background-color: var(--bg-primary)
+  margin-bottom: 10px
+  min-height: 0
+  min-width: 0
+
+.sections
+  max-height: 70px
+  display: grid
+  grid-template-areas: 'photo  title  buttons'
+  grid-template-columns: 100px auto auto
+
+.photo
+  max-height: 70px
+  grid-area: photo
+  border-radius: var(--border-radius)
+  overflow: hidden
+  &-img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.title
+  grid-area: title
+  font-weight: bold
+  padding-left: 10px
+
+.buttons
+  grid-area: buttons
+  text-align: right
+  &-remove
+    cursor: pointer
+    font-size: 1.5rem
+    background-color: var(--bg-secondary)
+    border-radius: 50%
+    padding: 4px
+    &:hover
+      color: red
