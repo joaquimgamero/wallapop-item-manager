@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { SortType } from 'src/app/shared/sort-type.enum';
 import { ItemsService } from 'src/app/services/items.service';
 
@@ -11,8 +11,9 @@ export class FiltersComponent implements OnInit {
   selectedOrder: SortType;
   orderByOptions = [];
 
-  pageSize: number = 5;
   pageNumber: number = 1;
+
+  @Input() pageSize: number;
 
   @Output() searched: EventEmitter<string> = new EventEmitter();
   @Output() sorted: EventEmitter<SortType> = new EventEmitter();
@@ -22,8 +23,6 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderByOptions = Object.values(SortType);
-    if (this.itemsService.lastSortType)
-      this.selectedOrder = this.itemsService.lastSortType;
   }
 
   onSearch(term: string) {

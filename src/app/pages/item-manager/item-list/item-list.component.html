@@ -1,5 +1,10 @@
 <!-- Filters -->
-<filters (searched)="onSearch($event)" (sorted)="onSortBy($event)"></filters>
+<filters
+  [pageSize]="pageSize"
+  (searched)="onSearch($event)"
+  (sorted)="onSortBy($event)"
+  (pageChanged)="onPageChanged($event)"
+></filters>
 
 <!-- Item list -->
 <div class="list" *ngIf="items$ | async as items">

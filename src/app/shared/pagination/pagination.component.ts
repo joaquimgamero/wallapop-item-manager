@@ -9,18 +9,12 @@ export class PaginationComponent {
   @Input() lastPage: number;
   @Input() firstPage: number;
   @Input() currentPage: number;
-  @Input() showLoadMore: boolean;
 
   @Output() changed: EventEmitter<number> = new EventEmitter();
-  @Output() loadMore: EventEmitter<any> = new EventEmitter();
 
   onPageChange() {
     this.normalizePage();
     this.changed.emit(this.currentPage);
-  }
-
-  onLoadMore() {
-    this.loadMore.emit();
   }
 
   onNext() {
