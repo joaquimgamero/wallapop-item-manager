@@ -12,7 +12,6 @@ export class FiltersComponent implements OnInit {
   orderByOptions = [];
 
   @Input() pageSize: number;
-  @Input() listSize: number;
   @Input() currentPage: number;
   @Input() firstPage: number;
   @Input() lastPage: number;
