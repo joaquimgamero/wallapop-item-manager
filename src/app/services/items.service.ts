@@ -11,7 +11,6 @@ import { SortType } from '../shared/sort-type.enum';
 })
 export class ItemsService {
   items: Item[];
-  lastSortType: SortType;
 
   private itemsUrl =
     'https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json';
@@ -34,45 +33,6 @@ export class ItemsService {
       }),
       catchError(this.handleError)
     );
-  }
-
-  // TODO: Lighten up getSortedItems responsability, separate to different sorts
-  public getSortedItems(sortType: SortType): Observable<Item[]> {
-    if (!this.items) this.getItems();
-    this.lastSortType = sortType;
-
-    switch (sortType) {
-      case SortType.Title:
-        return of(
-          this.items.sort(function (a, b) {
-            return a.title.localeCompare(b.title);
-          })
-        );
-      case SortType.Description:
-        return of(
-          this.items.sort(function (a, b) {
-            return a.description.localeCompare(b.description);
-          })
-        );
-      case SortType.Email:
-        return of(
-          this.items.sort(function (a, b) {
-            return a.email.localeCompare(b.email);
-          })
-        );
-      case SortType.PriceAscending:
-        return of(
-          this.items.sort(function (a, b) {
-            return a.price - b.price;
-          })
-        );
-      case SortType.PriceDescending:
-        return of(
-          this.items.sort(function (a, b) {
-            return b.price - a.price;
-          })
-        );
-    }
   }
 
   private handleError(error: HttpErrorResponse) {

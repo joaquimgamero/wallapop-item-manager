@@ -1,0 +1,27 @@
+<!-- Searcher -->
+<searcher class="search" (searched)="onSearch($event)"></searcher>
+
+<!-- Sort By -->
+<!-- TODO: Use more beautiful material design select -->
+<div class="sort-filter">
+  <span class="sort-filter-description">Ordenar por precio, título...</span>
+  <span>
+    <i class="material-icons">sort_by_alpha</i>
+  </span>
+  <select [(ngModel)]="selectedOrder" (ngModelChange)="onSortBy($event)">
+    <option [value]="option" *ngFor="let option of orderByOptions">{{
+      option
+    }}</option>
+  </select>
+</div>
+
+<!-- Pagination -->
+<pagination
+  class="pagination"
+  [lastPage]="lastPage"
+  [firstPage]="firstPage"
+  [currentPage]="currentPage"
+  (changed)="onPageChange($event)"
+></pagination>
+
+<!-- [currentPage]="displayedPageNumber" -->

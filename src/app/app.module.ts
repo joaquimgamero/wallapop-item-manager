@@ -13,6 +13,7 @@ import { ItemListComponent } from './pages/item-manager/item-list/item-list.comp
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
 import { PaginationComponent } from './shared/pagination/pagination.component';
+import { FiltersComponent } from './pages/item-manager/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
     SearcherComponent,
     SearchPipe,
     PaginationComponent,
+    FiltersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
