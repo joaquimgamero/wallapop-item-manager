@@ -33,7 +33,6 @@ h1, h2
 
 main
   margin-left: 5rem
-  padding: 2.5rem
 
 option
   font-size: 1rem
@@ -47,11 +46,23 @@ mat-form-field
   margin-left: 20px
 
 // Responsiveness
+// Large screens
+@media(min-width: 800px)
+  main
+    margin-bottom: 5rem
+    padding: 2.5rem
+
 // Small screens
 @media(max-width: 800px)
   main
     margin-left: 0
     margin-bottom: 5rem
+    padding: 0.5rem
+
+  mat-form-field
+    width: 70vw
+  mat-select
+    width: 70vw
 
 // Material Icons
 .material-icons

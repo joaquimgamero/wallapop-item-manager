@@ -3,8 +3,8 @@
 <div mat-dialog-content>
   <ng-container *ngIf="userHasFavorites; else noFavorites">
     <div class="filters">
-      <searcher></searcher>
-      <pagination></pagination>
+      <searcher class="filters-search"></searcher>
+      <pagination class="filters-pagination"></pagination>
     </div>
     <div class="favorites-list">
       <favorite-item

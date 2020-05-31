@@ -5,9 +5,10 @@
 
 .filters
   display: grid
-  grid-template-rows: auto
-  grid-template-columns: auto auto
   margin-bottom: 50px
+  overflow: hidden
+  justify-content: center
+  transform: scale(0.8)
 
 .favorites-list
   display: grid
@@ -17,3 +18,15 @@
 
 .spacer
   flex-grow: 1
+
+// Responsiveness
+// Large screens
+@media(min-width: 800px)
+.filters
+  grid-template-areas: 'search pagination'
+
+
+// Small screens
+@media(max-width: 800px)
+.filters
+  grid-template-areas: 'search' 'pagination'

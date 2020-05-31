@@ -15,7 +15,7 @@ export class AppComponent {
   onOpenFavorites() {
     this.dialog.open(FavoritesModalComponent, {
       height: '70vh',
-      width: '40vw',
+      width: '60vw',
       autoFocus: true,
     });
   }
