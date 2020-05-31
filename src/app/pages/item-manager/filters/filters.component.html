@@ -2,7 +2,6 @@
 <searcher class="search" (searched)="onSearch($event)"></searcher>
 
 <!-- Sort By -->
-<!-- TODO: Separate SortBy select to a shareable component -->
 <!-- TODO: Use more beautiful material design select -->
 <div class="sort-filter">
   <span class="sort-filter-description">Ordenar por precio, título...</span>
@@ -19,8 +18,10 @@
 <!-- Pagination -->
 <pagination
   class="pagination"
-  [currentPage]="displayedPageNumber"
   [lastPage]="lastPage"
   [firstPage]="1"
+  [currentPage]="currentPage"
   (changed)="onPageChange($event)"
 ></pagination>
+
+<!-- [currentPage]="displayedPageNumber" -->

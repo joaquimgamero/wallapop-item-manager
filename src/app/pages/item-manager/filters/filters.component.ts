@@ -11,9 +11,11 @@ export class FiltersComponent implements OnInit {
   selectedOrder: SortType;
   orderByOptions = [];
 
-  pageNumber: number = 1;
-
   @Input() pageSize: number;
+  @Input() listSize: number;
+  @Input() currentPage: number;
+  @Input() firstPage: number;
+  @Input() lastPage: number;
 
   @Output() searched: EventEmitter<string> = new EventEmitter();
   @Output() sorted: EventEmitter<SortType> = new EventEmitter();
@@ -30,34 +32,10 @@ export class FiltersComponent implements OnInit {
   }
 
   onSortBy(sortType: SortType) {
-    console.log(sortType);
     this.sorted.emit(sortType);
   }
 
   onPageChange(page: number) {
     this.pageChanged.emit(page);
-  }
-
-  get lastPage(): number {
-    if (!this.itemsService.items) return 0;
-
-    if (!this.itemsService.items || this.itemsService.items.length === 0) {
-      return 0;
-    } else {
-      return Math.ceil(this.itemsService.items.length / this.pageSize);
-    }
-  }
-
-  get displayedPageNumber(): number {
-    if (!this.itemsService.items) return 0;
-
-    if (
-      Math.ceil(this.itemsService.items.length / this.pageSize) <
-      this.pageNumber
-    ) {
-      this.pageNumber = 1;
-    }
-
-    return this.pageNumber;
   }
 }

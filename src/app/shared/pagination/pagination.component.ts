@@ -11,6 +11,7 @@ export class PaginationComponent {
   @Input() currentPage: number;
 
   @Output() changed: EventEmitter<number> = new EventEmitter();
+  @Output() loadMore: EventEmitter<any> = new EventEmitter();
 
   onPageChange() {
     this.normalizePage();

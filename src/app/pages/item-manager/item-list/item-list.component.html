@@ -1,6 +1,10 @@
 <!-- Filters -->
 <filters
   [pageSize]="pageSize"
+  [listSize]="itemsToShow"
+  [firstPage]="firstPage"
+  [currentPage]="currentPage"
+  [lastPage]="lastPage"
   (searched)="onSearch($event)"
   (sorted)="onSortBy($event)"
   (pageChanged)="onPageChanged($event)"
