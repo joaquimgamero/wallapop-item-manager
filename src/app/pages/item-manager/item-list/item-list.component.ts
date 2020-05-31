@@ -15,24 +15,18 @@ export class ItemListComponent implements OnInit {
   items$: Observable<Item[]>;
   lastSearchTerm: string;
 
-  selectedOrder: SortType;
-  orderByOptions = [];
-
   constructor(private itemsService: ItemsService) {}
 
   ngOnInit() {
     this.items$ = this.itemsService.getItems();
-    this.orderByOptions = Object.values(SortType);
-
-    if (this.itemsService.lastSortType)
-      this.selectedOrder = this.itemsService.lastSortType;
   }
 
-  onSearched(term: string) {
+  onSearch(term: string) {
     this.lastSearchTerm = term;
   }
 
-  onSortBy(value: string) {
-    this.items$ = this.itemsService.getSortedItems(this.selectedOrder);
+  onSortBy(sortType: SortType) {
+    console.log(sortType);
+    this.items$ = this.itemsService.getSortedItems(sortType);
   }
 }

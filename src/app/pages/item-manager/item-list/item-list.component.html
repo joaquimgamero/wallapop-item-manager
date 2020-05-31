@@ -1,32 +1,5 @@
 <!-- Filters -->
-<div class="filters">
-  <!-- Searcher -->
-  <searcher class="search" (searched)="onSearched($event)"></searcher>
-
-  <!-- Sort By -->
-  <!-- TODO: Separate SortBy select to a shareable component -->
-  <!-- TODO: Use more beautiful material design select -->
-  <div class="sort-filter">
-    <span class="sort-filter-description">Ordenar por precio, título...</span>
-    <span>
-      <i class="material-icons">sort_by_alpha</i>
-    </span>
-    <select [(ngModel)]="selectedOrder" (ngModelChange)="onSortBy($event)">
-      <option [value]="option" *ngFor="let option of orderByOptions">{{
-        option
-      }}</option>
-    </select>
-  </div>
-
-  <!-- Pagination -->
-  <!-- <pagination
-    class="pagination"
-    [currentPage]="displayedPageNumber"
-    [lastPage]="lastPage"
-    [firstPage]="1"
-    (changed)="onPageChange($event)"
-  ></pagination> -->
-</div>
+<filters (searched)="onSearch($event)" (sorted)="onSortBy($event)"></filters>
 
 <!-- Item list -->
 <div class="list" *ngIf="items$ | async as items">

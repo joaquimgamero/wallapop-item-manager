@@ -1,50 +1,9 @@
-i
-  font-size: 2rem
-  margin-top: 5px
-
-select
-  border: 1px solid black
-  height: 36px
-  width: 300px
-  border-radius: var(--border-radius)
-
 .list
   display: grid
-
-.filters
-  display: grid
-  grid-gap: 0
-
-  align-items: center
-  background-color: var(--bg-primary)
-  padding: 10px
-  margin-bottom: 10px
-  border-radius: var(--border-radius)
-  min-width: fit-content
-
-.search
-  grid-area: search
-
-.sort-filter
-  grid-area: sort
-  display: grid
-  grid-gap: 0
-  align-items: center
-
-.pagination
-  grid-area: pagination
 
 // Responsiveness
 // Large screens
 @media(min-width: 800px)
-  .filters
-    grid-template-areas: 'search  sort  pagination'
-    grid-template-columns: 380px auto 500px
-
-  .sort-filter
-    grid-template-columns: 200px 35px 320px
-
-
   .list
     gap: 1rem
     padding-left: 10vw
@@ -52,25 +11,6 @@ select
 
 // Small screens
 @media(max-width: 800px)
-  .filters
-    grid-template-areas: 'search' 'sort' 'pagination'
-    grid-template-columns: auto auto auto
-    justify-content: center
-
-  .search
-    justify-content: center
-    margin-bottom: 20px
-
-  .sort-filter
-    justify-content: center
-    margin-bottom: 20px
-    grid-template-columns: 35px 320px
-    &-description
-      display: none
-
-  .pagination
-    text-align: center
-
   .list
     gap: 0
     padding: 0
