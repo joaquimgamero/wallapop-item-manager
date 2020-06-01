@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearcherComponent } from './shared/searcher/searcher.component';
 import { ItemListComponent } from './pages/item-manager/item-list/item-list.component';
 import { FormsModule } from '@angular/forms';
-import { SearchPipe } from './pipes/search.pipe';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { FiltersComponent } from './pages/item-manager/filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +32,6 @@ import { FavoriteItemComponent } from './pages/favorites-modal/favorite-item/fav
     ItemListComponent,
     ItemComponent,
     SearcherComponent,
-    SearchPipe,
     PaginationComponent,
     FiltersComponent,
     FavoritesModalComponent,

@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { Observable, of, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Item } from 'src/app/shared/item';
 import { ItemsService } from 'src/app/services/items.service';
 import { SortType } from 'src/app/shared/sort-type.enum';
-import { map, shareReplay, finalize, tap } from 'rxjs/operators';
+import { map, finalize, tap } from 'rxjs/operators';
+import { itemIncludesTerm } from 'src/app/shared/normalized-search-filter';
 
 @Component({
   selector: 'item-list',
@@ -124,27 +124,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
     if (!this.lastSearchTerm) return this.filteredItems;
 
     return this.filteredItems.filter((item) =>
-      this.itemIncludesTerm(item, this.lastSearchTerm)
+      itemIncludesTerm(item, this.lastSearchTerm)
     );
-  }
-
-  private itemIncludesTerm(item: Item, term: string): boolean {
-    term = term.toLowerCase();
-    const title = item.title.toLowerCase();
-    const description = item.description.toLowerCase();
-    const email = item.email.toLowerCase();
-    const price = item.price.toString().toLowerCase();
-
-    // Normalize string in order to help user find more results (e.g.: Cámara => camara)
-    // ES6 String.prototype.normalize()
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
-    const allItemInfo = title
-      .concat(' ', description)
-      .concat(' ', email)
-      .concat(' ', price)
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
-
-    return allItemInfo.includes(term);
   }
 }
