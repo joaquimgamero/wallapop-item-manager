@@ -62,3 +62,9 @@ Se abrirá automáticamente en http://localhost:4200/.
 
 Muchas gracias, un saludo!
 Joaquim
+
+## Conclusión
+
+Construir esta pequeña app ha sido un reto muy divertido y estoy muy contento con el resultado, espero que esté a la altura. Espero con ganas vuestro feedback! Muchas gracias, y un saludo!
+
+Joaquim
