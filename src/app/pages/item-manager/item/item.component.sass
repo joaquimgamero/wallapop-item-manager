@@ -63,7 +63,6 @@ p
   text-align: right
   color: white
   &-fav
-    transition: all 0.5s ease-out
     cursor: pointer
     font-size: 2rem
     background-color: var(--bg-secondary)
@@ -72,10 +71,8 @@ p
     padding: 7px
     -webkit-text-stroke-width: 1px
     -webkit-text-stroke-color: deeppink
-    &:hover
-      background-color: var(--text-secondary)
 
-.isFavorite
+.is-favorite
   color: deeppink
 
 // Responsiveness
@@ -95,6 +92,9 @@ p
       &-text
         height: 110px
 
+  .buttons-fav
+    &:hover
+      background-color: var(--text-secondary)
 // Small screens
 @media(max-width: 800px)
   \:host

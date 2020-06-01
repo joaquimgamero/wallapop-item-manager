@@ -19,7 +19,11 @@
     </div>
     <div class="favorites-list">
       <span class="favorites-list-quantity"
-        >Tienes {{ favoritesQuantity }} objetos favoritos</span
+        >Tienes
+        <span class="favorites-list-quantity-number">{{
+          favoritesQuantity
+        }}</span>
+        objetos favoritos 😻</span
       >
       <favorite-item
         *ngFor="let favorite of filteredFavorites"
@@ -29,6 +33,6 @@
     </div>
   </ng-container>
   <ng-template #noFavorites>
-    <div class="text-empty">Tu lista de favoritos está vacía! 😿</div>
+    <div class="text-empty">Tu lista de favoritos está vacía! 😾</div>
   </ng-template>
 </div>

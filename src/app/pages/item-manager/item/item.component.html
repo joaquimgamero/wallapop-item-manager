@@ -24,7 +24,10 @@
     <div (click)="toggleFavorite()">
       <i
         class="material-icons buttons-fav"
-        [ngClass]="{ isFavorite: isFavorite }"
+        [ngClass]="{
+          'is-favorite': isFavorite,
+          'add-fav-animation': isFavorite
+        }"
         alt="Add to your favorites"
       >
         favorite</i
