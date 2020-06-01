@@ -13,6 +13,12 @@ export class FavoritesModalComponent implements OnInit {
   lastSearchTerm: string;
   filteredFavorites: Item[];
 
+  pageSize: number = 5;
+  currentPage: number = 1;
+  firstPage: number = 1;
+  lastPage: number;
+  itemsToShow: number;
+
   constructor(
     private favoritesService: FavoritesService,
     private dialogRef: MatDialogRef<FavoritesModalComponent>
@@ -39,11 +45,33 @@ export class FavoritesModalComponent implements OnInit {
     this.applyFilters();
   }
 
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.applyFilters();
+  }
+
   private applyFilters() {
     if (!this.userHasFavorites) return null;
 
     this.filteredFavorites = this.favorites;
     if (this.lastSearchTerm) this.filteredFavorites = this.filterBySearchTerm();
+
+    // Normalize pagination
+    this.itemsToShow = this.filteredFavorites.length;
+    this.lastPage = Math.ceil(this.itemsToShow / this.pageSize);
+    if (this.currentPage < this.firstPage) this.currentPage = this.firstPage;
+    if (this.currentPage > this.lastPage) this.currentPage = this.lastPage;
+    this.filteredFavorites = this.showCurrentPage();
+  }
+
+  private showCurrentPage(): Item[] {
+    const firstItemPosition =
+      this.currentPage === 1 ? 0 : this.pageSize * (this.currentPage - 1);
+
+    return this.filteredFavorites.slice(
+      firstItemPosition,
+      firstItemPosition + this.pageSize
+    );
   }
 
   private filterBySearchTerm(): Item[] {

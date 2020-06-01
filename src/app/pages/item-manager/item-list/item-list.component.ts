@@ -66,12 +66,11 @@ export class ItemListComponent implements OnInit, OnDestroy {
     if (this.lastSearchTerm) this.filteredItems = this.filterBySearchTerm();
     if (this.lastSortType) this.filteredItems = this.sortItems();
 
+    // Normalize pagination
     this.itemsToShow = this.filteredItems.length;
     this.lastPage = Math.ceil(this.itemsToShow / this.pageSize);
-
     if (this.currentPage < this.firstPage) this.currentPage = this.firstPage;
     if (this.currentPage > this.lastPage) this.currentPage = this.lastPage;
-
     this.filteredItems = this.showCurrentPage();
   }
 

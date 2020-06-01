@@ -9,7 +9,13 @@
   <ng-container *ngIf="userHasFavorites; else noFavorites">
     <div class="filters">
       <searcher class="filters-search" (searched)="onSearch($event)"></searcher>
-      <pagination class="filters-pagination"></pagination>
+      <pagination
+        class="filters-pagination"
+        [lastPage]="lastPage"
+        [firstPage]="firstPage"
+        [currentPage]="currentPage"
+        (changed)="onPageChange($event)"
+      ></pagination>
     </div>
     <div class="favorites-list">
       <favorite-item
