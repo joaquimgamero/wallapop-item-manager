@@ -23,4 +23,14 @@ describe('FiltersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should include the searcher component', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('searcher')).not.toBe(null);
+  }));
+
+  it('should include the pagination component', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('pagination')).not.toBe(null);
+  }));
 });

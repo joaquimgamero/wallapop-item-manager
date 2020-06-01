@@ -23,4 +23,9 @@ describe('ItemManagerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should include the items list', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('item-list')).not.toBe(null);
+  }));
 });
