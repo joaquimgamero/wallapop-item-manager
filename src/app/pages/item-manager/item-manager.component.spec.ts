@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemManagerComponent } from './item-manager.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ItemManagerComponent', () => {
   let component: ItemManagerComponent;
@@ -8,9 +9,9 @@ describe('ItemManagerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemManagerComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      declarations: [ItemManagerComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
