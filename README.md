@@ -21,7 +21,7 @@ Al desarrollar, usando `git` he ido separando el código en ramas y fundiéndola
 
 ## Testing
 
-Usando las herramientas que Angular provee para testear, Karma y Jasmine, he añadido tests unitarios y algunos tests de integración. Ejecuta `ng test` para abrir Karma y ver el resultado de los tests (40+ tests).
+Usando las herramientas que Angular provee para testear, Karma y Jasmine, he añadido tests unitarios y algunos tests de integración. Una vez compilada la aplicación, ejecuta `ng test` para abrir Karma y ver el resultado de los tests (40+ tests).
 
 (Foto testing)
 
