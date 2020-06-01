@@ -14,8 +14,10 @@ export class AppComponent {
 
   onOpenFavorites() {
     this.dialog.open(FavoritesModalComponent, {
-      height: '70vh',
-      width: '60vw',
+      minHeight: '70vh',
+      maxHeight: '90vh',
+      minWidth: '60vw',
+      maxWidth: '95vw',
       autoFocus: true,
     });
   }
