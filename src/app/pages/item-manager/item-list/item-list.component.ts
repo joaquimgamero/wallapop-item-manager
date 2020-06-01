@@ -34,7 +34,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
     this.itemsSubscription = this.itemsService
       .getItems()
       .pipe(
-        delay(1000),
+        delay(700),
         tap(console.log),
         map((items) => {
           this.allItems = items;

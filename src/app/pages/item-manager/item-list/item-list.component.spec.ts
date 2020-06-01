@@ -116,4 +116,12 @@ describe('ItemListComponent', () => {
     expect(component.filteredItems.length).toBe(1);
     expect(component.filteredItems[0].id).toBe(1);
   }));
+
+  it('should show a message to the user if no items have been found', async(() => {
+    component.onSearch('test-test-test-test');
+    // After sorting
+    expect(
+      de.query(By.css('.no-items-found')).nativeElement.innerText
+    ).not.toBe(null);
+  }));
 });
