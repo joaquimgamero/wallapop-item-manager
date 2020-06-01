@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Item } from 'src/app/shared/item';
-import { ItemsService } from 'src/app/services/items.service';
+import { ItemsService } from 'src/app/pages/item-manager/items.service';
 import { SortType } from 'src/app/shared/sort-type.enum';
 import { map, finalize, tap } from 'rxjs/operators';
 import * as ItemFiltering from 'src/app/shared/item-filtering';
 import * as ItemSorting from 'src/app/shared/item-sorting';
+import { Item } from 'src/app/shared/item';
 
 @Component({
   selector: 'item-list',

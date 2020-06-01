@@ -3,8 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Item } from '../shared/item';
-import { SortType } from '../shared/sort-type.enum';
+import { Item } from 'src/app/shared/item';
 
 @Injectable({
   providedIn: 'root',

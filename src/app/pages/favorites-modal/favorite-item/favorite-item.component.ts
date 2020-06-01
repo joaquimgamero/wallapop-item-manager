@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/shared/item';
-import { FavoritesService } from 'src/app/services/favorites.service';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'favorite-item',
