@@ -1,27 +1,43 @@
-# WallapopItemManager
+# Wallapop Item Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+Hola! He construido un pequeño Item Manager tal como se describía en la ficha del test técnico. Se trata de una pequeña app con un navbar en la izquierda (o abajo en versión mobile), un listado principal de los objetos con las herramientas de filtración indicadas y una modal para gestionar los items que el usuario haya añadido a favoritos. Las herramientas utilizadas son:
 
-## Development server
+* Angular 9 (y por lo tanto, TypeScript)
+* JavaScript y alguna función de ES6
+* SASS para gestionar estilos
+* Karma + Jasmine para testing
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Aspectos técnicos
 
-## Code scaffolding
+(Foto app)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Al ser una app pequeña he intentado seguir el patrón estructural de Folders-by-feature: una carpeta para cada feature de la app. La idea es poder localizar el código rápidamente, identificarlo, conseguir una estructura plana, sin mucha ramificación (LIFT guidelines). Una pequeña excepción es el componente navbar, que he separado en una carpeta para el layout, pensando que un futuro, si se modificase extensivamente el layout (añadir un header, o un footer), se podría colocar todo allí.
 
-## Build
+A la hora de modulizar el código he intentado separar responsabilidades, no duplicar código y seguir el principio DRY (Don't Repeat Yourself), pero sin sacrificar legibilidad.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+(Foto estructura)
 
-## Running unit tests
+Al desarrollar, usando `git` he ido separando el código en ramas y fundiéndolas con master cuando he ido acabando cada implementación.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Testing
 
-## Running end-to-end tests
+Usando las herramientas que Angular provee para testear, Karma y Jasmine, he añadido tests unitarios y algunos tests de integración. Ejecuta `ng test` para abrir Karma y ver el resultado de los tests (40+ tests).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+(Foto testing)
 
-## Further help
+## UX/UI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+He tenido en cuenta, dentro de lo que he podido, la compatibilidad con mobile y el diseño responsive. La app se puede visualizar satisfactoriamente en muchas resoluciones. Os dejo un ejemplo de como se vería en un iPhone X:
+
+(Foto mobile)
+
+## Compilar y ejecutar
+
+Para ejecutar la app en local primero hay que clonar el repositorio. Lo puedes descargar aquí mismo, o puedes ejecutar `$ git clone https://github.com/joaquimgamero/wallapop-item-manager`.
+
+Una vez clonado, será necesario instalar las dependencias usando npm: `npm install`.
+
+Finalmente se puede ejecutar en local con `ng serve -o`, se abrirá automáticamente en http://localhost:4200/.
+
+Muchas gracias!
+Joaquim
