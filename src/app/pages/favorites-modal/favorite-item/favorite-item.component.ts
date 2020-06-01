@@ -1,0 +1,20 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from 'src/app/shared/item';
+import { FavoritesService } from 'src/app/services/favorites.service';
+
+@Component({
+  selector: 'favorite-item',
+  templateUrl: './favorite-item.component.html',
+  styleUrls: ['./favorite-item.component.sass'],
+})
+export class FavoriteItemComponent implements OnInit {
+  @Input() item: Item;
+
+  constructor(private favoritesService: FavoritesService) {}
+
+  ngOnInit(): void {}
+
+  onRemoveFromFavorites() {
+    this.favoritesService.removeFromFavorites(this.item);
+  }
+}

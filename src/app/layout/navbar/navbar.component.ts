@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'navbar',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent implements OnInit {
+  @Output() favoritesOpened: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onOpenFavorites(): void {
+    this.favoritesOpened.emit();
+  }
 }

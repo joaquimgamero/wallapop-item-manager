@@ -28,12 +28,12 @@ html, body
   left: 0
   top: 0
 
-h1
+h1, h2
   margin-top: 0
+  margin-bottom: 0
 
 main
   margin-left: 5rem
-  padding: 2.5rem
 
 option
   font-size: 1rem
@@ -43,12 +43,34 @@ input:focus
 select:focus
   outline: none
 
+mat-form-field
+  margin-left: 20px
+
 // Responsiveness
+// Large screens
+@media(min-width: 800px)
+  main
+    margin-bottom: 5rem
+    padding: 2.5rem
+
 // Small screens
 @media(max-width: 800px)
   main
     margin-left: 0
     margin-bottom: 5rem
+    padding: 1.2rem
+
+  .mat-dialog-container
+    padding: 8px !important
+    overflow: hidden !important
+
+  .mat-dialog-content
+    max-height: 100% !important
+
+  mat-form-field
+    width: 70vw
+  mat-select
+    width: 70vw
 
 // Material Icons
 .material-icons

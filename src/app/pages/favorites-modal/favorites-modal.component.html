@@ -1,0 +1,30 @@
+<div class="header">
+  <h2>Tus favoritos</h2>
+  <div class="header-buttons">
+    <i (click)="close()" class="material-icons close-icon">close</i>
+  </div>
+</div>
+
+<div mat-dialog-content>
+  <ng-container *ngIf="userHasFavorites; else noFavorites">
+    <div class="filters">
+      <searcher class="filters-search" (searched)="onSearch($event)"></searcher>
+      <pagination
+        class="filters-pagination"
+        [lastPage]="lastPage"
+        [firstPage]="firstPage"
+        [currentPage]="currentPage"
+        (changed)="onPageChange($event)"
+      ></pagination>
+    </div>
+    <div class="favorites-list">
+      <favorite-item
+        *ngFor="let favorite of filteredFavorites"
+        [item]="favorite"
+      ></favorite-item>
+    </div>
+  </ng-container>
+  <ng-template #noFavorites>
+    <div class="text-empty">Tu lista de favoritos está vacía! 😿</div>
+  </ng-template>
+</div>
