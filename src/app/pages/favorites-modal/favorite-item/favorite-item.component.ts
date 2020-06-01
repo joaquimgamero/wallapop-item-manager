@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/shared/item';
 import { FavoritesService } from 'src/app/services/favorites.service';
 
@@ -9,6 +9,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 })
 export class FavoriteItemComponent implements OnInit {
   @Input() item: Item;
+  @Output() removedFromFavorites: EventEmitter<any> = new EventEmitter();
 
   constructor(private favoritesService: FavoritesService) {}
 
@@ -16,5 +17,6 @@ export class FavoriteItemComponent implements OnInit {
 
   onRemoveFromFavorites() {
     this.favoritesService.removeFromFavorites(this.item);
+    this.removedFromFavorites.emit();
   }
 }

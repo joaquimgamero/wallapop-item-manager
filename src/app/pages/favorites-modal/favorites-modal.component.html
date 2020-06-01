@@ -18,8 +18,12 @@
       ></pagination>
     </div>
     <div class="favorites-list">
+      <span class="favorites-list-quantity"
+        >Tienes {{ favoritesQuantity }} objetos favoritos</span
+      >
       <favorite-item
         *ngFor="let favorite of filteredFavorites"
+        (removedFromFavorites)="onItemUnfaved()"
         [item]="favorite"
       ></favorite-item>
     </div>

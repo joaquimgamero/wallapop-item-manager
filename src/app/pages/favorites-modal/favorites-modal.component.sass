@@ -47,11 +47,13 @@
   .filters
     grid-template-areas: 'search pagination'
     grid-template-columns: 50% 50%
-    margin-bottom: 50px
+    margin-bottom: 30px
 
   .favorites-list
     padding-left: 50px
     padding-right: 50px
+    &-quantity
+      margin-bottom: 30px
 
 // Small screens
 @media(max-width: 800px)
@@ -61,6 +63,9 @@
   .filters
     grid-template-areas: 'search' 'pagination'
     grid-template-columns: 100%
-    margin-bottom: 10px
+    margin-bottom: 5px
     transform: scale(0.85)
+
+  .favorites-list-quantity
+    margin-bottom: 5px
 

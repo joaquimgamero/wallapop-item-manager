@@ -32,6 +32,10 @@ export class FavoritesModalComponent implements OnInit {
     return this.favoritesService.favorites;
   }
 
+  get favoritesQuantity(): number {
+    return this.favorites.length || 0;
+  }
+
   get userHasFavorites(): boolean {
     return this.favoritesService.userHasFavorites;
   }
@@ -47,6 +51,10 @@ export class FavoritesModalComponent implements OnInit {
 
   onPageChange(page: number) {
     this.currentPage = page;
+    this.applyFilters();
+  }
+
+  onItemUnfaved() {
     this.applyFilters();
   }
 

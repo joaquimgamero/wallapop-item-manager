@@ -14,7 +14,7 @@ export class AppComponent {
 
   onOpenFavorites() {
     this.dialog.open(FavoritesModalComponent, {
-      minHeight: '70vh',
+      minHeight: '80vh',
       maxHeight: '90vh',
       minWidth: '60vw',
       maxWidth: '95vw',
