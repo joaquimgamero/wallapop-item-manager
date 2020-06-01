@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FavoritesService } from 'src/app/services/favorites.service';
 import { Item } from 'src/app/shared/item';
 import { itemIncludesTerm } from 'src/app/shared/item-filtering';
+import { FavoritesService } from './favorites.service';
 
 @Component({
   selector: 'favorites-modal',

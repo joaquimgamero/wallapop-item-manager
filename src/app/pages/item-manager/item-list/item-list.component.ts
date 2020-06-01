@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Item } from 'src/app/shared/item';
-import { ItemsService } from 'src/app/services/items.service';
+import { ItemsService } from 'src/app/pages/item-manager/items.service';
 import { SortType } from 'src/app/shared/sort-type.enum';
-import { map, finalize, tap } from 'rxjs/operators';
+import { map, finalize, tap, delay } from 'rxjs/operators';
 import * as ItemFiltering from 'src/app/shared/item-filtering';
 import * as ItemSorting from 'src/app/shared/item-sorting';
+import { Item } from 'src/app/shared/item';
 
 @Component({
   selector: 'item-list',
@@ -26,18 +26,24 @@ export class ItemListComponent implements OnInit, OnDestroy {
   lastPage: number;
   itemsToShow: number;
 
+  loading: boolean = false;
   constructor(private itemsService: ItemsService) {}
 
   ngOnInit() {
+    this.loading = true;
     this.itemsSubscription = this.itemsService
       .getItems()
       .pipe(
+        delay(700),
         tap(console.log),
         map((items) => {
           this.allItems = items;
           this.filteredItems = items;
         }),
-        finalize(() => this.applyFilters())
+        finalize(() => {
+          this.applyFilters();
+          this.loading = false;
+        })
       )
       .subscribe();
   }

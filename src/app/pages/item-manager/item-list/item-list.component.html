@@ -1,5 +1,8 @@
 <!-- Filters -->
 <filters
+  [ngClass]="{
+    loading: loading
+  }"
   class="filters"
   [pageSize]="pageSize"
   [firstPage]="firstPage"
@@ -11,6 +14,25 @@
 ></filters>
 
 <!-- Item list -->
-<div class="list" *ngIf="filteredItems">
-  <item *ngFor="let item of filteredItems" [item]="item"></item>
-</div>
+<ng-container *ngIf="!loading; else wait">
+  <div
+    class="list"
+    *ngIf="filteredItems && filteredItems.length > 0; else noItems"
+  >
+    <item *ngFor="let item of filteredItems" [item]="item"></item>
+  </div>
+  <ng-template #noItems>
+    <div *ngIf="!loading" class="no-items-found">
+      No hemos encontrado nada... 😿 Por favor, prueba con otros términos de
+      búsqueda!
+    </div>
+  </ng-template>
+</ng-container>
+
+<!-- TODO: Implement ghosted items list instead of displaying a message -->
+<!-- TODO: Show error message to user if request failed -->
+<ng-template #wait>
+  <div class="no-items-found">
+    Buscando los objetos... Espera un momento, por favor! 🙄
+  </div>
+</ng-template>
