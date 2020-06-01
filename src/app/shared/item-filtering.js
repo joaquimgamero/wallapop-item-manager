@@ -1,4 +1,5 @@
-export function itemIncludesTerm(item, term) {
+// Determines if an item contains a given term in its internal data
+itemIncludesTerm = function (item, term) {
   term = term.toLowerCase();
   const title = item.title.toLowerCase();
   const description = item.description.toLowerCase();
@@ -16,4 +17,4 @@ export function itemIncludesTerm(item, term) {
     .replace(/[\u0300-\u036f]/g, "");
 
   return allItemInfo.includes(term);
-}
+};

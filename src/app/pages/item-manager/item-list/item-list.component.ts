@@ -4,7 +4,8 @@ import { Item } from 'src/app/shared/item';
 import { ItemsService } from 'src/app/services/items.service';
 import { SortType } from 'src/app/shared/sort-type.enum';
 import { map, finalize, tap } from 'rxjs/operators';
-import { itemIncludesTerm } from 'src/app/shared/normalized-search-filter';
+import * as ItemFiltering from 'src/app/shared/item-filtering';
+import * as ItemSorting from 'src/app/shared/item-sorting';
 
 @Component({
   selector: 'item-list',
@@ -74,38 +75,18 @@ export class ItemListComponent implements OnInit, OnDestroy {
     this.filteredItems = this.showCurrentPage();
   }
 
-  private sortItemsByTitle(items: Item[]) {
-    return items.sort((a, b) => a.title.localeCompare(b.title));
-  }
-
-  private sortItemsByDescription(items: Item[]) {
-    return items.sort((a, b) => a.description.localeCompare(b.description));
-  }
-
-  private sortItemsByEmail(items: Item[]) {
-    return items.sort((a, b) => a.email.localeCompare(b.email));
-  }
-
-  private sortItemsByPriceAscending(items: Item[]) {
-    return items.sort((a, b) => a.price - b.price);
-  }
-
-  private sortItemsByPriceDescending(items: Item[]) {
-    return items.sort((a, b) => b.price - a.price);
-  }
-
   private sortItems(): Item[] {
     switch (this.lastSortType) {
       case SortType.Title:
-        return this.sortItemsByTitle(this.filteredItems);
+        return ItemSorting.sortItemsByTitle(this.filteredItems);
       case SortType.Description:
-        return this.sortItemsByDescription(this.filteredItems);
+        return ItemSorting.sortItemsByDescription(this.filteredItems);
       case SortType.Email:
-        return this.sortItemsByEmail(this.filteredItems);
+        return ItemSorting.sortItemsByEmail(this.filteredItems);
       case SortType.PriceAscending:
-        return this.sortItemsByPriceAscending(this.filteredItems);
+        return ItemSorting.sortItemsByPriceAscending(this.filteredItems);
       case SortType.PriceDescending:
-        return this.sortItemsByPriceDescending(this.filteredItems);
+        return ItemSorting.sortItemsByPriceDescending(this.filteredItems);
     }
   }
 
@@ -123,7 +104,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
     if (!this.lastSearchTerm) return this.filteredItems;
 
     return this.filteredItems.filter((item) =>
-      itemIncludesTerm(item, this.lastSearchTerm)
+      ItemFiltering.itemIncludesTerm(item, this.lastSearchTerm)
     );
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { SortType } from 'src/app/shared/sort-type.enum';
-import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'filters',
@@ -20,7 +19,7 @@ export class FiltersComponent implements OnInit {
   @Output() sorted: EventEmitter<SortType> = new EventEmitter();
   @Output() pageChanged: EventEmitter<number> = new EventEmitter();
 
-  constructor(private itemsService: ItemsService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.orderByOptions = Object.values(SortType);
