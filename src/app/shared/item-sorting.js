@@ -1,20 +1,20 @@
 // Different sorting types for Item interfaces
-sortItemsByTitle = function (items) {
+export function sortItemsByTitle(items) {
   return items.sort((a, b) => a.title.localeCompare(b.title));
-};
+}
 
-sortItemsByDescription = function (items) {
+export function sortItemsByDescription(items) {
   return items.sort((a, b) => a.description.localeCompare(b.description));
-};
+}
 
-sortItemsByEmail = function (items) {
+export function sortItemsByEmail(items) {
   return items.sort((a, b) => a.email.localeCompare(b.email));
-};
+}
 
-sortItemsByPriceAscending = function (items) {
+export function sortItemsByPriceAscending(items) {
   return items.sort((a, b) => a.price - b.price);
-};
+}
 
-sortItemsByPriceDescending = function (items) {
+export function sortItemsByPriceDescending(items) {
   return items.sort((a, b) => b.price - a.price);
-};
+}
