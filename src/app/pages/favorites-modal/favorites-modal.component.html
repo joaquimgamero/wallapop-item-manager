@@ -23,7 +23,7 @@
         <span class="favorites-list-quantity-number">{{
           favoritesQuantity
         }}</span>
-        objetos favoritos 😻</span
+        objeto<span *ngIf="favoritesQuantity > 1">s</span> en favoritos😻</span
       >
       <favorite-item
         *ngFor="let favorite of filteredFavorites"
