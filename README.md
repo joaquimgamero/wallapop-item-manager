@@ -25,7 +25,7 @@ Al desarrollar, usando `git` he ido separando el código en ramas y fundiéndola
 
 ## Testing
 
-Usando las herramientas que Angular provee para testear, Karma y Jasmine, he añadido tests unitarios y algunos tests de integración. Una vez compilada la aplicación, ejecuta `ng test` para abrir Karma y ver el resultado de los tests (40+ tests).
+Usando las herramientas que Angular provee para testear, Karma y Jasmine, he añadido tests unitarios y algunos tests de integración. Una vez compilada la aplicación, ejecuta `ng test` para abrir Karma y ver el resultado de los tests.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/joaquimgamero/joaquimgamero.github.io/master/img/testing.png" height="500">
@@ -42,11 +42,29 @@ He tenido en cuenta, dentro de lo que he podido, la compatibilidad con mobile y 
 
 ## Compilar y ejecutar
 
-Para ejecutar la app en local primero hay que clonar el repositorio. Lo puedes descargar aquí mismo, o puedes ejecutar `$ git clone https://github.com/joaquimgamero/wallapop-item-manager`.
+Para ejecutar la app en local es necesario tener instalado NPM Package Manager, que viene con Node.js. Lo puedes descargar <a href="https://nodejs.org/en/">aquí</a>. En primer lugar hay que clonar el repositorio. Lo puedes descargar aquí mismo, o puedes ejecutar:
 
-Una vez clonado, será necesario instalar las dependencias usando npm: `$ npm install`.
+`$ git clone https://github.com/joaquimgamero/wallapop-item-manager`
 
-Finalmente se puede ejecutar en local con `$ ng serve -o`, se abrirá automáticamente en http://localhost:4200/.
+Una vez clonado, nos introducimos en la carpeta de la app:
+
+`$ cd wallapop-item-manager/`
+
+Será necesario instalar las dependencias:
+
+`$ npm install`.
+
+Finalmente se puede ejecutar en local con: 
+
+`$ ng serve -o`
+
+Se abrirá automáticamente en http://localhost:4200/.
 
 Muchas gracias, un saludo!
+Joaquim
+
+## Conclusión
+
+Construir esta pequeña app ha sido un reto muy divertido y estoy muy contento con el resultado, espero que esté a la altura. Espero con ganas vuestro feedback! Muchas gracias, y un saludo!
+
 Joaquim
