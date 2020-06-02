@@ -18,12 +18,12 @@
       ></pagination>
     </div>
     <div class="favorites-list">
-      <span class="favorites-list-quantity"
+      <div class="favorites-list-quantity"
         >Tienes
         <span class="favorites-list-quantity-number">{{
           favoritesQuantity
         }}</span>
-        objeto<span *ngIf="favoritesQuantity > 1">s</span> en favoritos😻</span
+        objeto<span *ngIf="favoritesQuantity > 1">s</span> en favoritos😻</div
       >
       <favorite-item
         *ngFor="let favorite of filteredFavorites"
