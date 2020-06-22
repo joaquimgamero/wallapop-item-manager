@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/joaquimgamero/joaquimgamero.github.io/master/img/app.png" height="500">
 </p>
 
-Hola! He construido un pequeño Item Manager tal como se describía en la ficha del test técnico. Se trata de una pequeña app con un navbar en la izquierda (o abajo en versión mobile), un listado principal de los objetos con las herramientas de filtración indicadas y una modal para gestionar los items que el usuario haya añadido a favoritos. Las herramientas utilizadas son:
+Esto es un pequeño Item Manager al estilo de apps de market de objetos de segunda mano, al estilo de Wallapop o Vibbo. Se trata de una pequeña app con un navbar en la izquierda (o abajo en versión mobile), un listado principal de los objetos con las herramientas de filtración indicadas y una modal para gestionar los items que el usuario haya añadido a favoritos. Las herramientas utilizadas son:
 
 * Angular 9 (y por lo tanto, TypeScript)
 * JavaScript, con alguna función de ES6
@@ -59,12 +59,3 @@ Finalmente se puede ejecutar en local con:
 `$ ng serve -o`
 
 Se abrirá automáticamente en http://localhost:4200/.
-
-Muchas gracias, un saludo!
-Joaquim
-
-## Conclusión
-
-Construir esta pequeña app ha sido un reto muy divertido y estoy muy contento con el resultado, espero que esté a la altura. Espero con ganas vuestro feedback! Muchas gracias, y un saludo!
-
-Joaquim
